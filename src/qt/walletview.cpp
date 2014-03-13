@@ -39,6 +39,10 @@ WalletView::WalletView(QWidget *parent, BitcoinGUI *_gui):
 {
     // Create tabs
     overviewPage = new OverviewPage();
+    QPalette p(palette());
+    p.setColor(QPalette::Background, QColor(240, 240, 240));
+    overviewPage->setAutoFillBackground(true);
+    overviewPage->setPalette(p);
 
     transactionsPage = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout();
