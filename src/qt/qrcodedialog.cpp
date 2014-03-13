@@ -47,7 +47,7 @@ void QRCodeDialog::setModel(OptionsModel *model)
     if (model)
         connect(model, SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
 
-    // update the display unit, to not use the default ("MAX")
+    // update the display unit, to not use the default ("WEC")
     updateDisplayUnit();
 }
 
@@ -95,8 +95,8 @@ QString QRCodeDialog::getURI()
     {
         if (ui->lnReqAmount->validate())
         {
-            // even if we allow a non MAX unit input in lnReqAmount, we generate the URI with MAX as unit (as defined in BIP21)
-            ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::MAX, ui->lnReqAmount->value()));
+            // even if we allow a non WEC unit input in lnReqAmount, we generate the URI with WEC as unit (as defined in BIP21)
+            ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::WEC, ui->lnReqAmount->value()));
             paramCount++;
         }
         else
@@ -122,7 +122,7 @@ QString QRCodeDialog::getURI()
     }
 
     // limit URI length to prevent a DoS against the QR-Code dialog
-    if (ret.length() > MAX_URI_LENGTH)
+    if (ret.length() > WEC_URI_LENGTH)
     {
         ui->btnSaveAs->setEnabled(false);
         ui->lblQRCode->setText(tr("Resulting URI too long, try to reduce the text for label / message."));

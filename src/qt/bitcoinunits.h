@@ -19,9 +19,9 @@ public:
      */
     enum Unit
     {
-        MAX,
-        mMAX,
-        uMAX
+        WEC,
+        mWEC,
+        uWEC
     };
 
     //! @name Static API

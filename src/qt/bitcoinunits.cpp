@@ -11,9 +11,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(MAX);
-    unitlist.append(mMAX);
-    unitlist.append(uMAX);
+    unitlist.append(WEC);
+    unitlist.append(mWEC);
+    unitlist.append(uWEC);
     return unitlist;
 }
 
@@ -21,9 +21,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case MAX:
-    case mMAX:
-    case uMAX:
+    case WEC:
+    case mWEC:
+    case uWEC:
         return true;
     default:
         return false;
@@ -34,9 +34,9 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case MAX: return QString("MAX");
-    case mMAX: return QString("mMAX");
-    case uMAX: return QString::fromUtf8("μMAX");
+    case WEC: return QString("WEC");
+    case mWEC: return QString("mWEC");
+    case uWEC: return QString::fromUtf8("μWEC");
     default: return QString("???");
     }
 }
@@ -45,9 +45,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case MAX: return QString("WeCoins");
-    case mMAX: return QString("Milli-WeCoins (1 / 1,000)");
-    case uMAX: return QString("Micro-WeCoins (1 / 1,000,000)");
+    case WEC: return QString("WeCoins");
+    case mWEC: return QString("Milli-WeCoins (1 / 1,000)");
+    case uWEC: return QString("Micro-WeCoins (1 / 1,000,000)");
     default: return QString("???");
     }
 }
@@ -56,9 +56,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case MAX:  return 100000000;
-    case mMAX: return 100000;
-    case uMAX: return 100;
+    case WEC:  return 100000000;
+    case mWEC: return 100000;
+    case uWEC: return 100;
     default:   return 100000000;
     }
 }
@@ -67,9 +67,9 @@ int BitcoinUnits::amountDigits(int unit)
 {
     switch(unit)
     {
-    case MAX: return 8; // 21,000,000 (# digits, without commas)
-    case mMAX: return 11; // 21,000,000,000
-    case uMAX: return 14; // 21,000,000,000,000
+    case WEC: return 8; // 21,000,000 (# digits, without commas)
+    case mWEC: return 11; // 21,000,000,000
+    case uWEC: return 14; // 21,000,000,000,000
     default: return 0;
     }
 }
@@ -78,9 +78,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case MAX: return 8;
-    case mMAX: return 5;
-    case uMAX: return 2;
+    case WEC: return 8;
+    case mWEC: return 5;
+    case uWEC: return 2;
     default: return 0;
     }
 }
