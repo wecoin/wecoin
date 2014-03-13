@@ -82,3 +82,4 @@ qa/pull-tester/run-maxcoind-for-test.sh
 qa/pull-tester/build-tests.sh
 
 !src/leveldb*/Makefile
+src/obj/
