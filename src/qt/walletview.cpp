@@ -45,6 +45,9 @@ WalletView::WalletView(QWidget *parent, BitcoinGUI *_gui):
     overviewPage->setPalette(p);
 
     transactionsPage = new QWidget(this);
+    transactionsPage->setAutoFillBackground(true);
+    transactionsPage->setPalette(p);
+
     QVBoxLayout *vbox = new QVBoxLayout();
     QHBoxLayout *hbox_buttons = new QHBoxLayout();
     transactionView = new TransactionView(this);
@@ -60,14 +63,24 @@ WalletView::WalletView(QWidget *parent, BitcoinGUI *_gui):
     transactionsPage->setLayout(vbox);
 
     addressBookPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::SendingTab);
+    addressBookPage->setAutoFillBackground(true);
+    addressBookPage->setPalette(p);
 
     receiveCoinsPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::ReceivingTab);
+    receiveCoinsPage->setAutoFillBackground(true);
+    receiveCoinsPage->setPalette(p);
 
     miningPage = new MiningPage(gui);
+    miningPage->setAutoFillBackground(true);
+    miningPage->setPalette(p);
 
     sendCoinsPage = new SendCoinsDialog(gui);
+    sendCoinsPage->setAutoFillBackground(true);
+    sendCoinsPage->setPalette(p);
 
     signVerifyMessageDialog = new SignVerifyMessageDialog(gui);
+    signVerifyMessageDialog->setAutoFillBackground(true);
+    signVerifyMessageDialog->setPalette(p);
 
     addWidget(overviewPage);
     addWidget(transactionsPage);
